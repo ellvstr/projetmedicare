@@ -5,7 +5,121 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Medicare: Accueil</title>
 <link href="https://fonts.googleapis.com/css2?family=Lovelo:wght@400;700&display=swap" rel="stylesheet">
-<link href="style.css" rel="stylesheet" type="text/css">
+<style>
+    body {
+        margin: 0;
+        font-family: 'Lovelo', sans-serif; /* Police principale */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0; /* Gris clair pour le fond de la page */
+    }
+
+    .wrapper {
+        width: 80%;
+        max-width: 1200px;
+        background-color: #ffffff; /* Blanc */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 2px solid #ccc; /* Gris */
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    .header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 24px;
+    }
+
+    header .teal {
+        color: #3da09a; /* Teal */
+    }
+
+    header .light-teal {
+        color: #8dd2c2; /* Light Teal */
+    }
+
+    header .logo {
+        margin-top: 10px;
+        height: 50px; /* Ajustez la hauteur si nécessaire */
+    }
+
+    nav {
+        margin-bottom: 20px;
+    }
+
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #ffffff; /* Blanc pour le texte des liens */
+        background-color: #3da09a; /* Teal pour le fond des liens */
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-size: 16px;
+    }
+
+    nav ul li a:hover {
+        background-color: #8dd2c2; /* Light Teal pour le fond des liens au survol */
+    }
+
+    section {
+        text-align: center;
+        padding: 50px 0;
+        border-top: 2px solid #ccc; /* Gris pour la bordure supérieure */
+        border-bottom: 2px solid #ccc; /* Gris pour la bordure inférieure */
+        margin-bottom: 20px;
+    }
+
+    section h2 {
+        font-size: 32px;
+        color: #3da09a; /* Teal */
+    }
+
+    footer {
+        text-align: center;
+        font-size: 18px;
+        color: #3da09a; /* Teal */
+    }
+
+    footer p {
+        margin: 5px 0;
+    }
+
+    footer .map-container {
+        margin-top: 20px;
+    }
+
+    footer .map-container iframe {
+        width: 100%;
+        height: 300px; /* Ajustez la hauteur si nécessaire */
+        border: 0;
+    }
+</style>
 </head>
 <body>
     <div class="wrapper">
