@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tout Parcourir - Medicare</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #3da09a;
+        }
+        header {
+            background: #f0f0f0;
+            color: #8dd2c2;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        .content {
+            padding: 1rem;
+        }
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            background: #f0f0f0;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .menu a {
+            color: #3da09a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .menu a:hover {
+            text-decoration: underline;
+        }
+        .category {
+            display: none;
+        }
+        .category.active {
+            display: block;
+        }
+        .doctor-list {
+            list-style: none;
+            padding: 0;
+        }
+        .doctor-list li {
+            cursor: pointer;
+            padding: 0.5rem 0;
+        }
+        .doctor-list li:hover {
+            text-decoration: underline;
+        }
+        .doctor-details {
+            display: none;
+            border: 1px solid #8dd2c2;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+        .doctor-details.active {
+            display: block;
+        }
+        .doctor-details img {
+            max-width: 150px;
+            border-radius: 50%;
+        }
+        .doctor-details .info {
+            margin-left: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bienvenue sur Medicare !</h1>
+    </header>
+
+    <div class="content">
+        <nav class="menu">
+            <a href="#" id="med-gen">Médecine générale</a>
+            <a href="#" id="med-spec">Médecins spécialistes</a>
+            <a href="#" id="lab-bio">Laboratoire de biologie médicale</a>
+        </nav>
+
+        <div id="category-med-gen" class="category">
+            <h2>Médecine générale</h2>
+            <ul class="C:/xampp/htdocs/projetmedicare/specialist1.jpg">
+                <li data-doctor="1">Dr. Jean Dupont</li>
+                <li data-doctor="2">Dr. Marie Curie</li>
+                <li data-doctor="3">Dr. Louis Pasteur</li>
+            </ul>
+
+            <div id="doctor-1" class="doctor-details">
+                <h3>Dr. Jean Dupont</h3>
+                <div>
+                    <img src="doctor1.jpg" alt="Dr. Jean Dupont">
+                    <div class="info">
+                        <p>Bureau: A101</p>
+                        <p>Disponibilité: Lun-Ven 9:00-17:00</p>
+                        <p><a href="#">Voir CV</a></p>
+                        <p><a href="#">Envoyer un message</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="doctor-2" class="doctor-details">
+                <h3>Dr. Marie Curie</h3>
+                <div>
+                    <img src="doctor2.jpg" alt="Dr. Marie Curie">
+                    <div class="info">
+                        <p>Bureau: B202</p>
+                        <p>Disponibilité: Mar-Sam 10:00-18:00</p>
+                        <p><a href="#">Voir CV</a></p>
+                        <p><a href="#">Envoyer un message</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="doctor-3" class="doctor-details">
+                <h3>Dr. Louis Pasteur</h3>
+                <div>
+                    <img src="doctor3.jpg" alt="Dr. Louis Pasteur">
+                    <div class="info">
+                        <p>Bureau: C303</p>
+                        <p>Disponibilité: Lun-Mer 8:00-14:00</p>
+                        <p><a href="#">Voir CV</a></p>
+                        <p><a href="#">Envoyer un message</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="category-med-spec" class="category">
+            <h2>Médecins spécialistes</h2>
+            <p>Contenu à venir...</p>
+        </div>
+
+        <div id="category-lab-bio" class="category">
+            <h2>Laboratoire de biologie médicale</h2>
+            <p>Contenu à venir...</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const medGenLink = document.getElementById('med-gen');
+            const medSpecLink = document.getElementById('med-spec');
+            const labBioLink = document.getElementById('lab-bio');
+
+            const categoryMedGen = document.getElementById('category-med-gen');
+            const categoryMedSpec = document.getElementById('category-med-spec');
+            const categoryLabBio = document.getElementById('category-lab-bio');
+
+            medGenLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                categoryMedGen.classList.add('active');
+                categoryMedSpec.classList.remove('active');
+                categoryLabBio.classList.remove('active');
+            });
+
+            medSpecLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                categoryMedGen.classList.remove('active');
+                categoryMedSpec.classList.add('active');
+                categoryLabBio.classList.remove('active');
+            });
+
+            labBioLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                categoryMedGen.classList.remove('active');
+                categoryMedSpec.classList.remove('active');
+                categoryLabBio.classList.add('active');
+            });
+
+            const doctorListItems = document.querySelectorAll('.doctor-list li');
+            doctorListItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    const doctorId = this.getAttribute('data-doctor');
+                    document.querySelectorAll('.doctor-details').forEach(detail => {
+                        detail.classList.remove('active');
+                    });
+                    document.getElementById(`doctor-${doctorId}`).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
