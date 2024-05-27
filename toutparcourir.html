@@ -69,6 +69,44 @@
         .doctor-details .info {
             margin-left: 1rem;
         }
+        .availability {
+            margin-top: 1rem;
+        }
+        .availability .day {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        .availability .day span {
+            display: inline-block;
+            width: 150px;
+        }
+        .availability .slot {
+            display: inline-block;
+            width: 100px;
+            padding: 0.5rem;
+            text-align: center;
+            cursor: pointer;
+        }
+        .availability .available {
+            background: white;
+            border: 1px solid #8dd2c2;
+        }
+        .availability .unavailable {
+            background: #3da09a;
+            color: white;
+        }
+        .buttons {
+            margin-top: 1rem;
+        }
+        .buttons button {
+            padding: 0.5rem 1rem;
+            margin-right: 1rem;
+            cursor: pointer;
+            background: #3da09a;
+            color: white;
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -85,48 +123,260 @@
 
         <div id="category-med-gen" class="category">
             <h2>Médecine générale</h2>
-            <ul class="C:/xampp/htdocs/projetmedicare/specialist1.jpg">
-                <li data-doctor="1">Dr. Jean Dupont</li>
-                <li data-doctor="2">Dr. Marie Curie</li>
-                <li data-doctor="3">Dr. Louis Pasteur</li>
+            <ul class="doctor-list">
+                <li data-doctor="1">Dr. Patrice Bouree</li>
+                <li data-doctor="2">Dr. Jean Dupont</li>
+                <li data-doctor="3">Dr. Marie Curie</li>
+                <li data-doctor="4">Dr. Louis Pasteur</li>
+                <li data-doctor="5">Dr. Victor Hugo</li>
             </ul>
 
             <div id="doctor-1" class="doctor-details">
-                <h3>Dr. Jean Dupont</h3>
+                <h3>Dr. Patrice Bouree</h3>
                 <div>
-                    <img src="doctor1.jpg" alt="Dr. Jean Dupont">
+                    <img src="doctor1.jpg" alt="Dr. Patrice Bouree">
                     <div class="info">
-                        <p>Bureau: A101</p>
-                        <p>Disponibilité: Lun-Ven 9:00-17:00</p>
-                        <p><a href="#">Voir CV</a></p>
-                        <p><a href="#">Envoyer un message</a></p>
+                        <p>Bureau: EM100</p>
+                        <p>Téléphone: +33 1 23 45 67 89</p>
+                        <p>Email: <a href="mailto:patrice.bouree@medicare.com">patrice.bouree@medicare.com</a></p>
                     </div>
+                </div>
+                <div class="availability">
+                    <h4>Disponibilité</h4>
+                    <div class="day">
+                        <span>Lundi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Mardi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Mercredi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Jeudi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Vendredi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Samedi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button id="rdv-1">Prendre un RDV</button>
+                    <button id="comm-1">Communiquer avec le médecin</button>
+                    <button id="cv-1">Voir son CV</button>
                 </div>
             </div>
 
             <div id="doctor-2" class="doctor-details">
-                <h3>Dr. Marie Curie</h3>
+                <h3>Dr. Jean Dupont</h3>
                 <div>
-                    <img src="doctor2.jpg" alt="Dr. Marie Curie">
+                    <img src="doctor2.jpg" alt="Dr. Jean Dupont">
                     <div class="info">
-                        <p>Bureau: B202</p>
-                        <p>Disponibilité: Mar-Sam 10:00-18:00</p>
-                        <p><a href="#">Voir CV</a></p>
-                        <p><a href="#">Envoyer un message</a></p>
+                        <p>Bureau: EM101</p>
+                        <p>Téléphone: +33 1 23 45 67 90</p>
+                        <p>Email: <a href="mailto:jean.dupont@medicare.com">jean.dupont@medicare.com</a></p>
                     </div>
+                </div>
+                <div class="availability">
+                    <h4>Disponibilité</h4>
+                    <div class="day">
+                        <span>Lundi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Mardi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Mercredi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Jeudi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Vendredi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Samedi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button id="rdv-2">Prendre un RDV</button>
+                    <button id="comm-2">Communiquer avec le médecin</button>
+                    <button id="cv-2">Voir son CV</button>
                 </div>
             </div>
 
             <div id="doctor-3" class="doctor-details">
+                <h3>Dr. Marie Curie</h3>
+                <div>
+                    <img src="doctor3.jpg" alt="Dr. Marie Curie">
+                    <div class="info">
+                        <p>Bureau: EM102</p>
+                        <p>Téléphone: +33 1 23 55 66 60</p>
+                        <p>Email: <a href="mailto:marie.curie@medicare.com">marie.curie@medicare.com</a></p>
+                    </div>
+                </div>
+                <div class="availability">
+                    <h4>Disponibilité</h4>
+                    <div class="day">
+                        <span>Lundi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Mardi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Mercredi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Jeudi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Vendredi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Samedi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button id="rdv-2">Prendre un RDV</button>
+                    <button id="comm-2">Communiquer avec le médecin</button>
+                    <button id="cv-2">Voir son CV</button>
+                </div>
+            </div>
+
+            <div id="doctor-4" class="doctor-details">
                 <h3>Dr. Louis Pasteur</h3>
                 <div>
-                    <img src="doctor3.jpg" alt="Dr. Louis Pasteur">
+                    <img src="doctor4.jpg" alt="Dr. Louis Pasteur">
                     <div class="info">
-                        <p>Bureau: C303</p>
-                        <p>Disponibilité: Lun-Mer 8:00-14:00</p>
-                        <p><a href="#">Voir CV</a></p>
-                        <p><a href="#">Envoyer un message</a></p>
+                        <p>Bureau: EM103</p>
+                        <p>Téléphone: +33 31 23 35 37 30</p>
+                        <p>Email: <a href="mailto:louis.pasteur@medicare.com">louis.pasteur@medicare.com</a></p>
                     </div>
+                </div>
+                <div class="availability">
+                    <h4>Disponibilité</h4>
+                    <div class="day">
+                        <span>Lundi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Mardi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Mercredi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Jeudi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Vendredi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Samedi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button id="rdv-2">Prendre un RDV</button>
+                    <button id="comm-2">Communiquer avec le médecin</button>
+                    <button id="cv-2">Voir son CV</button>
+                </div>
+            </div>
+                 <div id="doctor-5" class="doctor-details">
+                <h3>Dr. Victor Hugo</h3>
+                <div>
+                    <img src="doctor5.jpg" alt="Dr. Victor  Hugo">
+                    <div class="info">
+                        <p>Bureau: EM104</p>
+                        <p>Téléphone: +33 21 22 32 27 20</p>
+                        <p>Email: <a href="mailto:victor.hugo@medicare.com">victor.hugo@medicare.com</a></p>
+                    </div>
+                </div>
+                <div class="availability">
+                    <h4>Disponibilité</h4>
+                    <div class="day">
+                        <span>Lundi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Mardi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Mercredi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Jeudi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Vendredi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Samedi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button id="rdv-2">Prendre un RDV</button>
+                    <button id="comm-2">Communiquer avec le médecin</button>
+                    <button id="cv-2">Voir son CV</button>
                 </div>
             </div>
         </div>
@@ -182,6 +432,26 @@
                     });
                     document.getElementById(`doctor-${doctorId}`).classList.add('active');
                 });
+            });
+
+            const availabilitySlots = document.querySelectorAll('.availability .available');
+            availabilitySlots.forEach(slot => {
+                slot.addEventListener('click', function () {
+                    this.classList.remove('available');
+                    this.classList.add('unavailable');
+                    alert('Ce créneau est maintenant pris. Vous recevrez une confirmation par SMS ou courriel.');
+                });
+            });
+
+            // Event listeners for buttons (Example for doctor 1)
+            document.getElementById('rdv-1').addEventListener('click', function () {
+                alert('Redirection vers la page de prise de rendez-vous...');
+            });
+            document.getElementById('comm-1').addEventListener('click', function () {
+                alert('Options de communication...');
+            });
+            document.getElementById('cv-1').addEventListener('click', function () {
+                alert('Affichage du CV...');
             });
         });
     </script>
