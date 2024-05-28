@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tout Parcourir - Medicare</title>
     <style>
-        body {
+ body {
             font-family: Lovelo, sans-serif;
             line-height: 1.6;
             margin: 0;
@@ -114,34 +114,34 @@
             color: black;
             border: none;
         }
-              nav {
-        margin-bottom: 20px;
-    }
+        nav {
+            margin-bottom: 20px;
+        }
 
-    nav ul {
-        list-style-type: none;
-        padding: 0;
-        display: flex;
-        justify-content: space-around;
-    }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
 
-    nav ul li {
-        margin: 0 10px;
-    }
+        nav ul li {
+            margin: 0 10px;
+        }
 
-    nav ul li a {
-        text-decoration: none;
-        color: #ffffff; /* Blanc pour le texte des liens */
-        background-color: #3da09a; /* Teal pour le fond des liens */
-        padding: 10px 20px;
-        border-radius: 10px;
-        font-size: 16px;
-    }
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff; /* Blanc pour le texte des liens */
+            background-color: #3da09a; /* Teal pour le fond des liens */
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 16px;
+        }
 
-    nav ul li a:hover {
-        background-color: #8dd2c2; /* Light Teal pour le fond des liens au survol */
-    }
-    footer {
+        nav ul li a:hover {
+            background-color: #8dd2c2; /* Light Teal pour le fond des liens au survol */
+        }
+        footer {
             background: black;
             color: #008080;
             padding: 1rem;
@@ -150,7 +150,8 @@
         .map-container {
             margin-top: 1rem;
         }
-    </style>
+
+</style>
 </head>
 <body>
     <header>
@@ -182,7 +183,7 @@
             <div id="doctor-1" class="doctor-details">
                 <h3>Dr. Patricia Bouree</h3>
                 <div>
-                    <img src="C:/xampp/htdocs/projetmedicare/specialist1.jpg" alt="Dr. Patricia Bouree">
+                    <img src="images/specialist1.jpg" alt="Dr. Patricia Bouree">
                     <div class="info">
                         <p>Bureau: EM100</p>
                         <p>Téléphone: +33 1 23 45 67 89</p>
@@ -842,41 +843,108 @@
             </div>
 
 
-        <div id="category-lab-bio" class="category">
-            <h2>Laboratoire de biologie médicale</h2>
-            <div class="lab-details">
+      <h1>Laboratoire de Biologie Médicale</h1>
+    <div id="category-lab-bio" class="category">
+        <h2>Laboratoire de biologie médicale</h2>
+        <div class="lab-details">
             <p>Salle: SC-101</p>
             <p>Téléphone: +33 01 32 56 67 22</p>
             <p>Courriel: <a href="mailto:labo.biologie@medicare.com">labo.biologie@medicare.com</a></p>
         </div>
         <button id="services-btn">Nos services</button>
-        <div id="services" style="display: none;">
-        <h3>Nos services</h3>
-        <ul>
-            <li><a href="#" id="covid">Dépistage COVID-19</a></li>
-            <li><a href="#" id="preventive">Biologie Préventive</a></li>
-            <li><a href="#" id="pregnancy">Biologie de la Femme Enceinte</a></li>
-            <li><a href="#" id="routine">Biologie de Routine</a></li>
-            <li><a href="#" id="oncology">Cancérologie</a></li>
-            <li><a href="#" id="gynecology">Gynécologie</a></li>
-        </ul>
-        <div id="service-content" style="display: none;">
-            <h4>Prélèvement de Sang :</h4>
-             <p>Avant le prélèvement de sang, il est souvent recommandé de jeûner pendant 8 à 12 heures. Cela signifie éviter de manger ou de boire autre chose que de l'eau pendant cette période, sauf indication contraire de votre médecin. Certains médicaments peuvent également influencer les résultats du test, il est donc essentiel d'informer votre professionnel de la santé de tous les médicaments que vous prenez. Durant le prélèvement, une aiguille sera utilisée pour recueillir l'échantillon de sang dans une veine, généralement au niveau du bras. Après le prélèvement, vous pouvez reprendre vos activités normales et il est conseillé de bien vous hydrater.</p>
-             <h4>Prélèvement d'Urine :</h4>
-            <p>Avant le prélèvement d'urine, il est important de suivre les instructions spécifiques fournies par votre médecin ou le laboratoire. Cela peut inclure des recommandations telles que l'arrêt de certains médicaments ou la collecte d'un échantillon à un moment précis de la journée. Durant le prélèvement, utilisez le récipient fourni pour recueillir l'échantillon d'urine de manière stérile. Assurez-vous de bien refermer hermétiquement le récipient après la collecte. Après le prélèvement, remettez le récipient au laboratoire selon les instructions données.</p>
-            <h4>Autres Informations Pertinentes :</h4>
-             <p>Il est important de suivre toutes les instructions fournies par votre professionnel de la santé ou le laboratoire pour garantir des résultats précis. Si vous avez des questions ou des préoccupations concernant le processus de prélèvement, n'hésitez pas à contacter le laboratoire ou votre médecin pour obtenir des clarifications. Ils sont là pour vous fournir les informations et le soutien dont vous avez besoin pour un prélèvement sans stress et des résultats fiables.</p>
-         </div>
-
-         <div class="availability">
-        <h3>Disponibilité des créneaux</h3>
-        <!-- Calendrier des créneaux disponibles -->
-        <!-- Ajoutez un bouton pour chaque créneau disponible -->
+        <div id="services">
+            <h3>Nos services</h3>
+            <ul>
+                <li><a href="#" class="service-link" data-service="covid">Dépistage COVID-19</a></li>
+                <li><a href="#" class="service-link" data-service="preventive">Biologie Préventive</a></li>
+                <li><a href="#" class="service-link" data-service="pregnancy">Biologie de la Femme Enceinte</a></li>
+                <li><a href="#" class="service-link" data-service="routine">Biologie de Routine</a></li>
+                <li><a href="#" class="service-link" data-service="oncology">Cancérologie</a></li>
+                <li><a href="#" class="service-link" data-service="gynecology">Gynécologie</a></li>
+            </ul>
+            <div id="service-content">
+                <h4>Prélèvement de Sang :</h4>
+                <p>Avant le prélèvement de sang, il est souvent recommandé de jeûner pendant 8 à 12 heures. Cela signifie éviter de manger ou de boire autre chose que de l'eau pendant cette période, sauf indication contraire de votre médecin. Certains médicaments peuvent également influencer les résultats du test, il est donc essentiel d'informer votre professionnel de la santé de tous les médicaments que vous prenez. Durant le prélèvement, une aiguille sera utilisée pour recueillir l'échantillon de sang dans une veine, généralement au niveau du bras. Après le prélèvement, vous pouvez reprendre vos activités normales et il est conseillé de bien vous hydrater.</p>
+                <h4>Prélèvement d'Urine :</h4>
+                <p>Avant le prélèvement d'urine, il est important de suivre les instructions spécifiques fournies par votre médecin ou le laboratoire. Cela peut inclure des recommandations telles que l'arrêt de certains médicaments ou la collecte d'un échantillon à un moment précis de la journée. Durant le prélèvement, utilisez le récipient fourni pour recueillir l'échantillon d'urine de manière stérile. Assurez-vous de bien refermer hermétiquement le récipient après la collecte. Après le prélèvement, remettez le récipient au laboratoire selon les instructions données.</p>
+                <h4>Autres Informations Pertinentes :</h4>
+                <p>Il est important de suivre toutes les instructions fournies par votre professionnel de la santé ou le laboratoire pour garantir des résultats précis. Si vous avez des questions ou des préoccupations concernant le processus de prélèvement, n'hésitez pas à contacter le laboratoire ou votre médecin pour obtenir des clarifications. Ils sont là pour vous fournir les informations et le soutien dont vous avez besoin pour un prélèvement sans stress et des résultats fiables.</p>
+            </div>
+            <div class="availability">
+                <h3>Disponibilité des créneaux</h3>
+                <!-- Calendrier des créneaux disponibles -->
+                <div class="day">
+                    <span>Lundi:</span>
+                    <div class="period">
+                        <div class="slot available">14h00 - 14h30</div>
+                        <div class="slot available">14h30 - 15h00</div>
+                        <div class="slot unavailable">15h00 - 15h30</div>
+                        <div class="slot available">15h30 - 16h00</div>
+                        <div class="slot unavailable">16h00 - 16h30</div>
+                        <div class="slot available">16h30 - 17h00</div>
+                        <div class="slot available">17h00 - 17h30</div>
+                        <div class="slot available">17h30 - 18h00</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <span>Mercredi:</span>
+                    <div class="period">
+                        <div class="slot available">9h00 - 9h30</div>
+                        <div class="slot unavailable">9h30 - 10h00</div>
+                        <div class="slot unavailable">10h00 - 10h30</div>
+                        <div class="slot available">10h30 - 11h00</div>
+                        <div class="slot available">11h00 - 11h30</div>
+                        <div class="slot unavailable">11h30 - 12h00</div>
+                    </div>
+                    <div class="period">
+                        <div class="slot available">14h00 - 14h30</div>
+                        <div class="slot available">14h30 - 15h00</div>
+                        <div class="slot unavailable">15h00 - 15h30</div>
+                        <div class="slot available">15h30 - 16h00</div>
+                        <div class="slot available">16h00 - 16h30</div>
+                        <div class="slot available">16h30 - 17h00</div>
+                        <div class="slot available">17h00 - 17h30</div>
+                        <div class="slot available">17h30 - 18h00</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <span>Vendredi:</span>
+                    <div class="period">
+                        <div class="slot unavailable">9h00 - 9h30</div>
+                        <div class="slot unavailable">9h30 - 10h00</div>
+                        <div class="slot unavailable">10h00 - 10h30</div>
+                        <div class="slot available">10h30 - 11h00</div>
+                        <div class="slot available">11h00 - 11h30</div>
+                        <div class="slot available">11h30 - 12h00</div>
+                    </div>
+                    <div class="period">
+                        <div class="slot available">14h00 - 14h30</div>
+                        <div class="slot available">14h30 - 15h00</div>
+                        <div class="slot available">15h00 - 15h30</div>
+                        <div class="slot available">15h30 - 16h00</div>
+                        <div class="slot available">16h00 - 16h30</div>
+                        <div class="slot available">16h30 - 17h00</div>
+                        <div class="slot available">17h00 - 17h30</div>
+                        <div class="slot available">17h30 - 18h00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
         </div>
         </div>
     </div>
 </div>
+
+<footer>
+    <p> Medicare | Copyright &copy; 2024 <br></p>
+    <p><strong>Email</strong> : <a href="mailto:contact@medicare.com">contact@medicare.com</a></p>
+    <p><strong>Téléphone</strong> : +33 2 13 15 67 89</p>
+    <p><strong>Adresse</strong> : 123 Rue de la Médecine, 75001 Paris, France</p>
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.999852768468!2d2.292292615674122!3d48.85884407928744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fdf0a7e2bfb%3A0x4b8c9c16ffb9c2c0!2sEiffel%20Tower!5e0!3m2!1sen!2sfr!4v1617966884876!5m2!1sen!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+</footer>
 
 <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -909,84 +977,86 @@
                 categoryLabBio.classList.add('active');
             });
 
-        const doctorListItems = document.querySelectorAll('#category-med-gen .doctor-list li');
-        doctorListItems.forEach(item => {
-            item.addEventListener('click', function () {
-                const doctorId = this.getAttribute('data-doctor');
-                document.querySelectorAll('#category-med-gen .doctor-details').forEach(detail => {
-                    detail.classList.remove('active');
+            const doctorListItems = document.querySelectorAll('#category-med-gen .doctor-list li');
+            doctorListItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    const doctorId = this.getAttribute('data-doctor');
+                    document.querySelectorAll('#category-med-gen .doctor-details').forEach(detail => {
+                        detail.classList.remove('active');
+                    });
+                    document.getElementById(`doctor-${doctorId}`).classList.add('active');
                 });
-                document.getElementById(`doctor-${doctorId}`).classList.add('active');
             });
-        });
 
-        const specialtyListItems = document.querySelectorAll('#category-med-spec .doctor-list li');
-        specialtyListItems.forEach(item => {
-            item.addEventListener('click', function () {
-                const specialtyId = this.getAttribute('data-specialty');
-                document.querySelectorAll('#category-med-spec .doctor-details').forEach(detail => {
-                    detail.classList.remove('active');
+            const specialtyListItems = document.querySelectorAll('#category-med-spec .doctor-list li');
+            specialtyListItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    const specialtyId = this.getAttribute('data-specialty');
+                    document.querySelectorAll('#category-med-spec .doctor-details').forEach(detail => {
+                        detail.classList.remove('active');
+                    });
+                    document.getElementById(specialtyId).classList.add('active');
                 });
-                document.getElementById(specialtyId).classList.add('active');
             });
-        });
 
+            const servicesBtn = document.getElementById('services-btn');
+            const services = document.getElementById('services');
+            const serviceContent = document.getElementById('service-content');
 
-        const servicesBtn = document.getElementById('services-btn');
-        const services = document.getElementById('services');
-        const serviceContent = document.getElementById('service-content');
+            servicesBtn.addEventListener('click', function () {
+                if (services.style.display === 'none' || services.style.display === '') {
+                    services.style.display = 'block';
+                } else {
+                    services.style.display = 'none';
+                }
+            });
 
-        servicesBtn.addEventListener('click', function () {
-            services.style.display = 'block';
-        });
-
-        function showServiceContent(service) {
-            serviceContent.innerHTML = '';
-            switch (service) {
-                case 'covid':
-                    serviceContent.innerHTML = `<h4>Dépistage COVID-19</h4><p>Informations sur le dépistage de la COVID-19.</p>`;
-                    break;
-                case 'preventive':
-                    serviceContent.innerHTML = `<h4>Biologie Préventive</h4><p>Informations sur la biologie préventive.</p>`;
-                    break;
-                case 'pregnancy':
-                    serviceContent.innerHTML = `<h4>Biologie de la Femme Enceinte</h4><p>Informations sur la biologie de la femme enceinte.</p>`;
-                    break;
-                case 'routine':
-                    serviceContent.innerHTML = `<h4>Biologie de Routine</h4><p>Informations sur la biologie de routine.</p>`;
-                    break;
-                case 'oncology':
-                    serviceContent.innerHTML = `<h4>Cancérologie</h4><p>Informations sur la cancérologie.</p>`;
-                    break;
-                case 'gynecology':
-                    serviceContent.innerHTML = `<h4>Gynécologie</h4><p>Informations sur la gynécologie.</p>`;
-                    break;
-                default:
-                    break;
+            function showServiceContent(service) {
+                serviceContent.innerHTML = '';
+                switch (service) {
+                    case 'covid':
+                        serviceContent.innerHTML = `<h4>Dépistage COVID-19</h4><p>Informations sur le dépistage de la COVID-19.</p>`;
+                        break;
+                    case 'preventive':
+                        serviceContent.innerHTML = `<h4>Biologie Préventive</h4><p>Informations sur la biologie préventive.</p>`;
+                        break;
+                    case 'pregnancy':
+                        serviceContent.innerHTML = `<h4>Biologie de la Femme Enceinte</h4><p>Informations sur la biologie de la femme enceinte.</p>`;
+                        break;
+                    case 'routine':
+                        serviceContent.innerHTML = `<h4>Biologie de Routine</h4><p>Informations sur la biologie de routine.</p>`;
+                        break;
+                    case 'oncology':
+                        serviceContent.innerHTML = `<h4>Cancérologie</h4><p>Informations sur la cancérologie.</p>`;
+                        break;
+                    case 'gynecology':
+                        serviceContent.innerHTML = `<h4>Gynécologie</h4><p>Informations sur la gynécologie.</p>`;
+                        break;
+                    default:
+                        break;
+                }
+                serviceContent.style.display = 'block';
             }
-            serviceContent.style.display = 'block';
-        }
 
-        const serviceLinks = document.querySelectorAll('#services ul li a');
-        serviceLinks.forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                const serviceId = this.getAttribute('id');
-                showServiceContent(serviceId);
+            const serviceLinks = document.querySelectorAll('#services ul li a');
+            serviceLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const serviceId = this.getAttribute('data-service');
+                    showServiceContent(serviceId);
+                });
+            });
+
+            const availabilitySlots = document.querySelectorAll('.availability .slot.available');
+            availabilitySlots.forEach(slot => {
+                slot.addEventListener('click', function () {
+                    this.classList.remove('available');
+                    this.classList.add('unavailable');
+                    alert('Ce créneau est maintenant pris. Vous recevrez une confirmation par SMS ou courriel.');
+                });
             });
         });
-    });
-</script>
-
-<footer>
-    <p> Medicare | Copyright &copy; 2024 <br></p>
-    <p><strong>Email</strong> : <a href="mailto:contact@medicare.com">contact@medicare.com</a></p>
-    <p><strong>Téléphone</strong> : +33 2 13 15 67 89</p>
-    <p><strong>Adresse</strong> : 123 Rue de la Médecine, 75001 Paris, France</p>
-    <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.999852768468!2d2.292292615674122!3d48.85884407928744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fdf0a7e2bfb%3A0x4b8c9c16ffb9c2c0!2sEiffel%20Tower!5e0!3m2!1sen!2sfr!4v1617966884876!5m2!1sen!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </div>
-</footer>
-
+    </script>
 </body>
 </html>
+
