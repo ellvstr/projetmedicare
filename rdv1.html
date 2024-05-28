@@ -13,89 +13,38 @@
             color: white;
             background-color: #008080; 
             text-align: center;
-        }
-        header {
-            background: #f0f0f0;
-            color: #8dd2c2;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        .content {
-            padding: 1rem;
-        }
-        .menu {
-            display: flex;
-            justify-content: space-around;
-            background: #f0f0f0;
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
-        .menu a {
-            color: #3da09a;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .menu a:hover {
-            text-decoration: underline;
-        }
-        .category {
-            display: none;
-        }
-        .category.active {
-            display: block;
-        }
-        .doctor-list {
-            list-style: none;
-            padding: 0;
-        }
-        .doctor-list li {
-            cursor: pointer;
-            padding: 0.5rem 0;
-        }
-        .doctor-list li:hover {
-            text-decoration: underline;
-        }
-        .doctor-details {
-            display: none;
-            border: 1px solid #8dd2c2;
-            padding: 1rem;
-            margin-top: 1rem;
-        }
-        .doctor-details.active {
-            display: block;
-        }
-        .doctor-details img {
-            max-width: 150px;
-            border-radius: 50%;
-        }
-        .doctor-details .info {
-            margin-left: 1rem;
-        }
+        }        
         .availability {
             margin-top: 1rem;
-        }
-        .availability .day {
             display: flex;
+            flex-direction: row; /* Placer les jours côte à côte */
+            justify-content: space-around; /* Pour espacer les jours */
+            align-items: flex-start; /* Aligner les jours en haut */
+        }
+        .day {
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
             align-items: center;
+        }
+        .day span {
             margin-bottom: 0.5rem;
         }
-        .availability .day span {
-            display: inline-block;
-            width: 150px;
+        .period {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
-        .availability .slot {
-            display: inline-block;
-            width: 100px;
+        .slot {
+            width: 120px;
             padding: 0.5rem;
-            text-align: center;
+            margin: 0.2rem;
             cursor: pointer;
-        }
-        .availability .available {
-           background: white;
+            background-color: white;
             color: black;
         }
-        .availability .unavailable {
-            background: #3da09a;
+        .unavailable {
+            background-color: blue;
             color: black;
         }
         .buttons {
@@ -109,87 +58,68 @@
             color: white;
             border: none;
         }
-    </style>
+</style>
 </head>
 <body>
     <h1>RDV de Dr. Patricia Bouree</h1><br>
      <div class="availability">
-                    <h4>Disponibilité :</h4>
                     <div class="day">
                         <span>Lundi:</span>
-                        <div class="slot unavailable">Matin</div>
-                        <div class="slot available">Après-midi</div>
+                        <div>Après-midi</div>
+                         <div class="slot available">14h00 - 14h30</div>
+                        <div class="slot available">14h30 - 15h00</div>
+                         <div class="slot unavailable">15h00 - 15h30</div>
+                        <div class="slot available">15h30 - 16h00</div>
+                         <div class="slot unavailable">16h00 - 16h30</div>
+                         <div class="slot available">16h30 - 17h00</div>
+                         <div class="slot available">17h00 - 17h30</div>
+                         <div class="slot available">17h30 - 18h00</div>
                     </div>
-                    <div class="day">
-                        <span>Mardi:</span>
-                        <div class="slot unavailable">Matin</div>
-                        <div class="slot unavailable">Après-midi</div>
-                    </div>
+                    
                     <div class="day">
                         <span>Mercredi:</span>
-                        <div class="slot available">Matin</div>
-                        <div class="slot available">Après-midi</div>
+                        <div>Matin</div>
+                         <div class="slot available">9h00 - 9h30</div>
+                        <div class="slot unavailable">9h30 - 10h00</div>
+                         <div class="slot unavailable">10h00 - 10h30</div>
+                        <div class="slot available">10h30 - 11h00</div>
+                         <div class="slot available">11h00 - 11h30</div>
+                        <div class="slot unavailable">11h30 - 12h00</div><br>
+                        <div>Après-midi</div>
+                          <div class="slot available">14h00 - 14h30</div>
+                        <div class="slot available">14h30 - 15h00</div>
+                         <div class="slot unavailable">15h00 - 15h30</div>
+                        <div class="slot available">15h30 - 16h00</div>
+                         <div class="slot available">16h00 - 16h30</div>
+                         <div class="slot available">16h30 - 17h00</div>
+                         <div class="slot available">17h00 - 17h30</div>
+                         <div class="slot available">17h30 - 18h00</div>
                     </div>
-                    <div class="day">
-                        <span>Jeudi:</span>
-                        <div class="slot unavailable">Matin</div>
-                        <div class="slot unavailable">Après-midi</div>
-                    </div>
+                
                     <div class="day">
                         <span>Vendredi:</span>
-                        <div class="slot available">Matin</div>
-                        <div class="slot available">Après-midi</div>
+                        <div>Matin</div>
+                         <div class="slot unavailable">9h00 - 9h30</div>
+                        <div class="slot unavailable">9h30 - 10h00</div>
+                         <div class="slot unavailable">10h00 - 10h30</div>
+                        <div class="slot available">10h30 - 11h00</div>
+                         <div class="slot available">11h00 - 11h30</div>
+                        <div class="slot available">11h30 - 12h00</div>
+                        <div>Après-midi</div>
+                          <div class="slot available">14h00 - 14h30</div>
+                        <div class="slot available">14h30 - 15h00</div>
+                         <div class="slot available">15h00 - 15h30</div>
+                        <div class="slot available">15h30 - 16h00</div>
+                         <div class="slot available">16h00 - 16h30</div>
+                         <div class="slot available">16h30 - 17h00</div>
+                         <div class="slot available">17h00 - 17h30</div>
+                         <div class="slot available">17h30 - 18h00</div>
                     </div>
-                    <div class="day">
-                        <span>Samedi:</span>
-                        <div class="slot unavailable">Matin</div>
-                        <div class="slot unavailable">Après-midi</div>
-                    </div>
-        </div>
+</div>
 
-<script>
+   <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const medGenLink = document.getElementById('med-gen');
-            const medSpecLink = document.getElementById('med-spec');
-            const labBioLink = document.getElementById('lab-bio');
-
-            const categoryMedGen = document.getElementById('category-med-gen');
-            const categoryMedSpec = document.getElementById('category-med-spec');
-            const categoryLabBio = document.getElementById('category-lab-bio');
-
-            medGenLink.addEventListener('click', function (e) {
-                e.preventDefault();
-                categoryMedGen.classList.add('active');
-                categoryMedSpec.classList.remove('active');
-                categoryLabBio.classList.remove('active');
-            });
-
-            medSpecLink.addEventListener('click', function (e) {
-                e.preventDefault();
-                categoryMedGen.classList.remove('active');
-                categoryMedSpec.classList.add('active');
-                categoryLabBio.classList.remove('active');
-            });
-
-            labBioLink.addEventListener('click', function (e) {
-                e.preventDefault();
-                categoryMedGen.classList.remove('active');
-                categoryMedSpec.classList.remove('active');
-                categoryLabBio.classList.add('active');
-            });
-
-            const doctorListItems = document.querySelectorAll('.doctor-list li');
-            doctorListItems.forEach(item => {
-                item.addEventListener('click', function () {
-                    const doctorId = this.getAttribute('data-doctor');
-                    document.querySelectorAll('.doctor-details').forEach(detail => {
-                        detail.classList.remove('active');
-                    });
-                    document.getElementById(`doctor-${doctorId}`).classList.add('active');
-                });
-            });
-
-            const availabilitySlots = document.querySelectorAll('.availability .available');
+           const availabilitySlots = document.querySelectorAll('.availability .slot.available');
             availabilitySlots.forEach(slot => {
                 slot.addEventListener('click', function () {
                     this.classList.remove('available');
@@ -197,8 +127,8 @@
                     alert('Ce créneau est maintenant pris. Vous recevrez une confirmation par SMS ou courriel.');
                 });
             });
+        });
+    </script>
 
-});
-</script>
 </body>
 </html>
