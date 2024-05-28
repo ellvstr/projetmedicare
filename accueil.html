@@ -6,28 +6,30 @@
     <title>Accueil - Medicare</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Lovelo, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            color: #3da09a;
+            color: #008080;
         }
         header {
-            background: #f0f0f0;
-            color: #8dd2c2;
+            background: black;
+            color: #008080;
             padding: 1rem 0;
             text-align: center;
         }
         .content {
             padding: 1rem;
             text-align: center;
+            background: #008080;
+            color: white;
         }
         .event, .bulletin, .specialists {
             margin: 1rem 0;
         }
         footer {
-            background: #f0f0f0;
-            color: #8dd2c2;
+            background: black;
+            color: #008080;
             padding: 1rem;
             text-align: center;
         }
@@ -72,12 +74,45 @@
         .carousel-button.next {
             right: 0;
         }
+        nav {
+        margin-bottom: 20px;
+    }
+
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #ffffff; /* Blanc pour le texte des liens */
+        background-color: #3da09a; /* Teal pour le fond des liens */
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-size: 16px;
+    }
+
+    nav ul li a:hover {
+        background-color: #8dd2c2; /* Light Teal pour le fond des liens au survol */
+    }
+
     </style>
 </head>
 <body>
     <header>
-        <h1>Bienvenue sur Medicare !</h1>
+        <h1>Accueil</h1>
     </header>
+    <nav>
+            <ul>
+                <li><a href="index.html">Menu</a></li>
+            </ul>
+        </nav>
 
     <div class="content">
         <section class="event">
@@ -104,15 +139,15 @@
         </section>
     </div>
 
-    <footer>
-        <p>Contactez-nous :</p>
-        <p><strong>Email</strong> : <a href="mailto:contact@medicare.com">contact@medicare.com</a></p>
-        <p><strong>Téléphone</strong> : +33 2 13 15 67 89</p>
-        <p><strong>Adresse</strong> : 123 Rue de la Médecine, 75001 Paris, France</p>
-        <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.999852768468!2d2.292292615674122!3d48.85884407928744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fdf0a7e2bfb%3A0x4b8c9c16ffb9c2c0!2sEiffel%20Tower!5e0!3m2!1sen!2sfr!4v1617966884876!5m2!1sen!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-    </footer>
+   <footer>
+            <p> Medicare | Copyright &copy; 2024 <br></p>
+            <p><strong>Email</strong> : <a href="mailto:contact@medicare.com">contact@medicare.com</a></p>
+            <p><strong>Téléphone</strong> : +33 2 13 15 67 89</p>
+            <p><strong>Adresse</strong> : 123 Rue de la Médecine, 75001 Paris, France</p>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.999852768468!2d2.292292615674122!3d48.85884407928744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fdf0a7e2bfb%3A0x4b8c9c16ffb9c2c0!2sEiffel%20Tower!5e0!3m2!1sen!2sfr!4v1617966884876!5m2!1sen!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
