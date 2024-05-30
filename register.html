@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription</title>
+    <style>
+        body {
+            background-color: #0C1A1A; /* Couleur de fond */
+            color: #FFFFFF; /* Couleur du texte */
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #003333; /* Couleur de fond du formulaire */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #008080; /* Couleur du titre */
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"], input[type="password"], input[type="email"], input[type="date"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px;
+            border: 1px solid #008080; /* Couleur des bordures des champs */
+            border-radius: 5px;
+            background-color: #0C1A1A; /* Couleur de fond des champs */
+            color: #FFFFFF;
+        }
+        button {
+            background-color: #008080; /* Couleur de fond du bouton */
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #006666; /* Couleur du bouton au survol */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Inscription</h1>
+        <form method="post" action="register.php">
+            <label for="Nom_Utilisateur_Client">Nom d'utilisateur:</label>
+            <input type="text" name="Nom_Utilisateur_Client" id="Nom_Utilisateur_Client" required>
+            
+            <label for="Mot_de_passe_Client">Mot de passe:</label>
+            <input type="password" name="Mot_de_passe_Client" id="Mot_de_passe_Client" required>
+            
+            <label for="Nom_Client">Nom:</label>
+            <input type="text" name="Nom_Client" id="Nom_Client" required>
+            
+            <label for="Prenom_Client">Prénom:</label>
+            <input type="text" name="Prenom_Client" id="Prenom_Client" required>
+            
+            <label for="Sexe">Sexe:</label>
+            <input type="text" name="Sexe" id="Sexe">
+            
+            <label for="Adresse">Adresse:</label>
+            <input type="text" name="Adresse" id="Adresse">
+            
+            <label for="Etat_de_sante">État de santé:</label>
+            <textarea name="Etat_de_sante" id="Etat_de_sante"></textarea>
+            
+            <label for="Ville">Ville:</label>
+            <input type="text" name="Ville" id="Ville">
+            
+            <label for="Code_Postal">Code Postal:</label>
+            <input type="text" name="Code_Postal" id="Code_Postal">
+            
+            <label for="Pays">Pays:</label>
+            <input type="text" name="Pays" id="Pays">
+            
+            <label for="Telephone_Client">Téléphone:</label>
+            <input type="text" name="Telephone_Client" id="Telephone_Client">
+            
+            <label for="Carte_Vitale">Carte Vitale:</label>
+            <input type="text" name="Carte_Vitale" id="Carte_Vitale">
+            
+            <label for="E_mail_Client">Email:</label>
+            <input type="email" name="E_mail_Client" id="E_mail_Client" required>
+            
+            <button type="submit">S'inscrire</button>
+        </form>
+    </div>
+</body>
+</html>
