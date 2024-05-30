@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nos Services - Laboratoire de biologie médicale</title>
+    <style>
+        body {
+            font-family: Lovelo, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: white;
+            background-color: #008080;
+            text-align: center;
+        }
+        header {
+            background: black;
+            color: #8dd2c2;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        .menu-button {
+    background-color: #3da09a; /* Utilisation du vert du titre */
+    color: white; /* Couleur du texte */
+    padding: 1rem 1.5rem; /* Ajustement du padding pour agrandir le bouton */
+    border: none;
+    border-radius: 5px; /* Arrondi des coins */
+    cursor: pointer;
+    margin-bottom: 20px; /* Espace sous le bouton */
+    font-size: 18px; /* Ajustement de la taille de la police */
+}
+
+
+
+        .content {
+            padding: 1rem;
+            text-align: left;
+        }
+        .service-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .service-list li {
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+        .service-list li:hover {
+            text-decoration: underline;
+        }
+        .service-details {
+            display: none;
+            border: 1px solid #8dd2c2;
+            padding: 1rem;
+            background: white;
+            color: black;
+            margin-top: 1rem;
+            border-radius: 10px;
+        }
+        .service-details.active {
+            display: block;
+        }
+        .buttons {
+            margin-top: 1rem;
+        }
+        .lab-info img {
+    max-width: 250px; /* Réduire la largeur maximale de l'image à 150 pixels */
+    border-radius: 25px; /* Ajouter un arrondi aux coins de l'image */
+}
+        .buttons button {
+    padding: 0.8rem 1.2rem; /* Augmenter le padding pour agrandir le bouton */
+    margin-right: 1rem;
+    cursor: pointer;
+    background: #f7df1e; /* Couleur de fond jaune */
+    color: black; /* Couleur du texte */
+    border: none;
+    border-radius: 10px; /* Ajouter un arrondi aux coins */
+    font-weight: bold; /* Mettre en gras */
+}
+
+.buttons button:hover {
+    background: #ffd000; /* Couleur de fond jaune plus foncé au survol */
+}
+
+
+        footer {
+            background: black;
+            color: #008080;
+            padding: 1rem;
+            text-align: center;
+        }
+        .availability {
+            margin-top: 1rem;
+            align-items: center;
+        }
+        .availability .day {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        .availability .day span {
+            display: inline-block;
+            width: 150px;
+            align-items: center;
+        }
+        .availability .slot {
+            display: inline-block;
+            width: 100px;
+            padding: 0.5rem;
+            text-align: center;
+            cursor: pointer;
+        }
+        .availability .available {
+            background: white;
+            color: black;
+            border: 1px solid #8dd2c2;
+            align-items: center;
+        }
+        .availability .unavailable {
+            background: black;
+            color: black;
+        }
+    </style>
+    <script>
+        function showDetails(serviceId) {
+            var details = document.querySelectorAll('.service-details');
+            details.forEach(function(detail) {
+                detail.classList.remove('active');
+            });
+            document.getElementById(serviceId).classList.add('active');
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h2>Laboratoire de biologie médicale</h2>
+    </header>
+    <button class="menu-button" onclick="window.location.href='index.html'">Menu</button>
+    <div class="lab-info">
+        <img src="images/laboratoire.png" alt="Laboratoire de biologie médicale">
+        <div class="details">
+            <p><strong>Salle:</strong> SC-101</p>
+            <p><strong>Téléphone:</strong> +33 01 22 33 44 55</p>
+            <p><strong>Email:</strong> <a href="mailto:labo.biologie@omnessante.fr">labo.biologie@omnessante.fr</a></p>
+        </div>
+        <div class="buttons">
+            <button id="service-button">Nos services</button>
+        </div>
+    </div>
+    <div class="content" id="service-content" style="display: none;">
+        <h2>Nos Services</h2>
+        <ul class="service-list">
+            <li onclick="showDetails('covid')">Dépistage covid-19</li>
+            <li onclick="showDetails('preventive')">Biologie préventive</li>
+            <li onclick="showDetails('pregnancy')">Biologie de la femme enceinte</li>
+            <li onclick="showDetails('routine')">Biologie de routine</li>
+            <li onclick="showDetails('cancer')">Cancérologie</li>
+            <li onclick="showDetails('gynecology')">Gynécologie</li>
+        </ul>
+        
+        <div id="covid" class="service-details">
+            <h3>Dépistage covid-19</h3>
+            <p>Le dépistage de la COVID-19 est une procédure vitale pour diagnostiquer et contenir la propagation du virus. Ce processus implique généralement un prélèvement d'échantillons, tels que le sang, la salive ou des écouvillons nasopharyngés, qui sont ensuite analysés pour détecter la présence du virus ou de ses anticorps. Avant le prélèvement, il est recommandé de suivre certaines directives pour garantir des résultats précis, telles que s'abstenir de manger ou de boire pendant une période spécifiée. Pendant le prélèvement, des professionnels de la santé qualifiés veilleront à ce que l'échantillon soit collecté de manière sûre et efficace.</p>
+             <div class="availability">
+                    <h4>Disponibilité</h4>
+                    <div class="day">
+                        <span>Lundi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Mardi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Mercredi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Jeudi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Vendredi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Samedi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button id="rdv-covid19"><a href="rdvcovid19.html">Prendre un RDV</a></button>
+                </div>
+        </div>
+
+        <div id="preventive" class="service-details">
+            <h3>Biologie préventive</h3>
+            <p>Pour votre rendez-vous en biologie préventive, veuillez noter que cette consultation est axée sur la promotion de votre santé et la prévention des maladies. Pendant votre rendez-vous, notre équipe médicale examinera votre historique médical, discutera de votre mode de vie et de vos habitudes, et peut recommander des tests de dépistage appropriés en fonction de vos facteurs de risque individuels. Ces tests peuvent inclure des analyses sanguines pour évaluer votre santé métabolique, des tests de dépistage génétique pour identifier les risques héréditaires, et d'autres évaluations personnalisées. Notre objectif est de vous fournir des informations précieuses sur votre santé actuelle et potentielle, ainsi que des recommandations pour maintenir un mode de vie sain et prévenir les maladies à long terme. Si vous avez des questions ou des préoccupations spécifiques, n'hésitez pas à les aborder lors de votre rendez-vous.</p>
+            <div class="availability">
+                    <h4>Disponibilité</h4>
+                    <div class="day">
+                        <span>Lundi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Mardi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Mercredi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Jeudi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Vendredi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Samedi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                    <div class="buttons">
+                    <button id="rdv-biopreventive"><a href="rdvbiopreventive.html">Prendre un RDV</a></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="pregnancy" class="service-details">
+            <h3>Biologie de la femme enceinte</h3>
+            <p>La biologie de la femme enceinte comprend une série de prélèvements spécifiques et des directives à suivre pour assurer le suivi de la santé de la mère et du fœtus pendant la grossesse. Ces prélèvements peuvent inclure des analyses sanguines pour surveiller les niveaux d'hormones et de nutriments essentiels, des tests d'imagerie pour évaluer le développement du fœtus, ainsi que des échantillons d'urine pour détecter d'éventuelles infections ou complications. Les règles à suivre varient en fonction du stade de la grossesse et des recommandations médicales spécifiques à chaque patiente.</p>
+            <div class="availability">
+                    <h4>Disponibilité</h4>
+                    <div class="day">
+                        <span>Lundi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Mardi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Mercredi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Jeudi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Vendredi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Samedi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button id="rdv-femmeenceinte"><a href="rdvfemmeenceinte.html">Prendre un RDV</a></button>
+                </div>
+        </div>
+
+        <div id="routine" class="service-details">
+            <h3>Biologie de routine</h3>
+            <p>La biologie de routine comprend une série de prélèvements standard qui permettent d'évaluer divers aspects de la santé d'un individu. Ces prélèvements peuvent inclure des analyses sanguines pour surveiller les taux de cholestérol, de glucose et d'autres marqueurs métaboliques, des tests d'urine pour détecter la présence de substances anormales, ainsi que des examens d'imagerie comme les radiographies et les échographies. Les règles à suivre pour ces prélèvements peuvent varier en fonction des besoins de chaque patient et des recommandations médicales spécifiques à leur situation clinique.</p>
+            <div class="availability">
+                    <h4>Disponibilité</h4>
+                    <div class="day">
+                        <span>Lundi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Mardi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Mercredi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Jeudi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Vendredi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Samedi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button id="rdv-biologieroutine"><a href="rdvbiologieroutine.html">Prendre un RDV</a></button>
+                </div>
+        </div>
+
+        <div id="cancer" class="service-details">
+            <h3>Cancérologie</h3>
+            <p>La cancérologie est la branche de la médecine qui se consacre à l'étude, au diagnostic et au traitement du cancer. Les prélèvements et les règles à suivre dans le cadre de la cancérologie dépendent du type de cancer et de son stade de développement. Ils peuvent inclure des biopsies pour prélever des échantillons de tissu suspect afin d'effectuer des analyses plus approfondies, des tests d'imagerie comme les scanners et les IRM pour évaluer l'étendue de la maladie, ainsi que des examens sanguins pour surveiller les marqueurs tumoraux. Le traitement du cancer peut également nécessiter des interventions chirurgicales, des traitements de radiothérapie et de chimiothérapie, ainsi que des thérapies ciblées et immunothérapies. Chaque plan de traitement est personnalisé en fonction du type de cancer, de sa localisation et des besoins spécifiques de chaque patient.</p>
+            <div class="availability">
+                    <h4>Disponibilité</h4>
+                    <div class="day">
+                        <span>Lundi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Mardi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Mercredi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Jeudi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Vendredi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Samedi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button id="rdv-cancer"><a href="rdvcancer.html">Prendre un RDV</a></button>
+                </div>
+        </div>
+
+        <div id="gynecology" class="service-details">
+            <h3>Gynécologie</h3>
+            <p>La gynécologie est la spécialité médicale qui se concentre sur la santé reproductive des femmes, y compris les organes génitaux féminins et les fonctions associées. Les prélèvements et les règles à suivre en gynécologie varient en fonction des besoins spécifiques de chaque patiente et des raisons de la consultation. Ils peuvent inclure des examens gynécologiques de routine tels que les frottis cervicaux pour dépister les anomalies cellulaires potentiellement précancéreuses, des échographies pelviennes pour évaluer la santé des organes reproducteurs internes, et des tests de dépistage des infections sexuellement transmissibles (IST).</p>
+            <div class="availability">
+                    <h4>Disponibilité</h4>
+                    <div class="day">
+                        <span>Lundi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Mardi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Mercredi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Jeudi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Vendredi:</span>
+                        <div class="slot available">Matin</div>
+                        <div class="slot available">Après-midi</div>
+                    </div>
+                    <div class="day">
+                        <span>Samedi:</span>
+                        <div class="slot unavailable">Matin</div>
+                        <div class="slot unavailable">Après-midi</div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button id="rdv-gynecologie"><a href="rdvgynecologie.html">Prendre un RDV</a></button>
+                </div>
+        </div>
+    </div>
+    <footer>
+        <p>Medicare | Copyright &copy; 2024 <br></p>
+        <p><strong>Email</strong> : <a href="mailto:contact@medicare.com">contact@medicare.com</a></p>
+        <p><strong>Téléphone</strong> : +33 2 13 15 67 89</p>
+        <p><strong>Adresse</strong> : 123 Rue de la Médecine, 75001 Paris, France</p>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.999852768468!2d2.292292615674122!3d48.85884407928744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fdf0a7e2bfb%3A0x4b8c9c16ffb9c2c2!2sTour%20Eiffel!5e0!3m2!1sen!2sfr!4v1635679342946!5m2!1sen!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </footer>
+
+<script>
+    // Fonction pour afficher ou masquer les détails du service
+    function showDetails(serviceId) {
+        var details = document.querySelectorAll('.service-details');
+        details.forEach(function(detail) {
+            detail.style.display = 'none'; // Masquer tous les détails
+        });
+        document.getElementById(serviceId).style.display = 'block'; // Afficher les détails du service sélectionné
+    }
+
+    // Récupérer le bouton "Nos services"
+    var serviceButton = document.getElementById('service-button');
+    // Récupérer le contenu des services
+    var serviceContent = document.getElementById('service-content');
+
+    // Ajouter un gestionnaire d'événements pour le clic sur le bouton "Nos services"
+    serviceButton.addEventListener('click', function() {
+        if (serviceContent.style.display === 'none') {
+            serviceContent.style.display = 'block';
+        } else {
+            serviceContent.style.display = 'none';
+        }
+    });
+</script>
+</body>
+</html>
