@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de connexion</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel='stylesheet' type='text/css' media='screen' href='css/bootstrap.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/all.min.css'>
+    <style>
+        body {
+          background-image: url('login.png');
+          background-size: cover;
+          background-position: center;
+        }
+        .row {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+        }
+        .col-lg-4 {
+          background-color: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('password_reset_success')) {
+                alert('Votre mot de passe a été réinitialisé avec succès. Veuillez vous connecter avec votre nouveau mot de passe.');
+            }
+            if (urlParams.has('password_reset_error')) {
+                alert('Une erreur est survenue lors de la réinitialisation de votre mot de passe. Veuillez réessayer ultérieurement.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-5">
+                <div class="col-lg-4 bg-white m-auto rounded-top">
+                    <h2 class="text-center">Inscription</h2>
+                    <form method="post" action="sign_up.php">
+                        <div class="input-group  mb-3">
+                            <span class="input-group-text">
+                                <i class="fa fa-user">
+                                </i> 
+                            </span>
+                            <input type="text" class="form-control" placeholder="Nom">
+                        </div>
+                        <div class="input-group  mb-3">
+                            <span class="input-group-text">
+                                <i class="fa fa-user">
+                                </i> 
+                            </span>
+                            <input type="text" class="form-control" placeholder="Prénom">
+                        </div>
+                        <div class="input-group  mb-3">
+                            <span class="input-group-text">
+                                <i class="fa fa-user">
+                                </i> 
+                            </span>
+                            <input type="text" name="username" placeholder="Adresse mail" required>
+                        </div>
+                        <div class="input-group  mb-3">
+                            <span class="input-group-text">
+                                <i class="fa fa-lock">
+                                </i> 
+                            </span>
+                            <input type="password" name="password" placeholder="Mot de passe" required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="button" class="btn btn-success">S’inscrire</button>
+                            <p class="text-center">
+                                 Avez vous déjà un compte ?<a href="login.html" class="small-link">Vous avez déjà un compte ?</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+   
+</body>
+</html>
+<script src='js/bootstrap.js'></script>

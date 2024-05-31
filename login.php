@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($admin && password_verify($password, $admin['Mdp_Admin'])) {
         // Redirection vers le tableau de bord de l'administrateur
-        header('Location: dashboard_admin.html');
+        header('Location: dashboard_admin.php');
         exit;
     } elseif ($medecin && password_verify($password, $medecin['Mdp_M_PS'])) {
         // Redirection vers le tableau de bord du médecin ou professionnel de santé
