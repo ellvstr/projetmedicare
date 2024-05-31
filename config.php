@@ -1,8 +1,9 @@
 <?php
-try {
-    $pdo = new PDO('mysql:host=localhost;dbname=medicare', 'root', '');
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die('Connection failed: ' . $e->getMessage());
-}
+$servername = "127.0.0.1";
+$username = "root";
+$password = "";
+$dbname = "medicare";
+
+// Créer la connexion
+$conn = new mysqli($servername, $username, $password, $dbname);
 ?>
