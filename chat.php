@@ -36,7 +36,7 @@ function loginForm() {
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Exemple Chat Texto</title>
+    <title>Chatroom</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
