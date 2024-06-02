@@ -12,35 +12,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $mot_de_passe = password_hash($_POST['mot_de_passe'], PASSWORD_DEFAULT);
     $telephone = $_POST['telephone'];
 
-    // Vérifier si des fichiers ont été téléchargés
-    if ($_FILES['cv']['name']) {
-        $cv = 'img/' . $_FILES['cv']['name'];
-        move_uploaded_file($_FILES['cv']['tmp_name'], $cv);
-    } else {
-        $cv = NULL;
-    }
     if ($_FILES['photo']['name']) {
         $photo = 'img/' . $_FILES['photo']['name'];
         move_uploaded_file($_FILES['photo']['tmp_name'], $photo);
-    } else {
-        $photo = NULL;
-    }
+    } 
+    
     if ($_FILES['video']['name']) {
         $video = 'video/' . $_FILES['video']['name'];
         move_uploaded_file($_FILES['video']['tmp_name'], $video);
-    } else {
-        $video = NULL;
-    }
+    } 
 
     // Ajouter le médecin dans la base de données
     $sql = "INSERT INTO medecin_et_professionnel_de_sante (Nom_M_PS, Prenom_M_PS, Specialite, Salle, CV, E_mail_M_PS, Mdp_M_PS, Telephone_M_PS, Photo, Video) 
-            VALUES (:nom, :prenom, :specialite, :salle, :cv, :email, :mot_de_passe, :telephone, :photo, :video)";
+            VALUES (:nom, :prenom, :specialite, :salle, :email, :mot_de_passe, :telephone, :photo, :video)";
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':nom', $nom);
     $stmt->bindValue(':prenom', $prenom);
     $stmt->bindValue(':specialite', $specialite);
     $stmt->bindValue(':salle', $salle);
-    $stmt->bindValue(':cv', $cv);
     $stmt->bindValue(':email', $email);
     $stmt->bindValue(':mot_de_passe', $mot_de_passe);
     $stmt->bindValue(':telephone', $telephone);
@@ -67,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-color: #0C1A1A;
+            background-color: #008080;
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -111,10 +100,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <div class="input-group mb-3">
                                 <span class="input-group-text"><i class="fa fa-hospital"></i></span>
                                 <input type="text" class="form-control" id="salle" name="salle" placeholder="Salle" required>
-                            </div>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text"><i class="fa fa-file-alt"></i></span>
-                                <input type="file" class="form-control" id="cv" name="cv">
                             </div>
                         </div>
                         <div class="col">

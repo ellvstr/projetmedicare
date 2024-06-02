@@ -26,7 +26,7 @@
             color: white;
         }
         .wrapper {
-            width: 80%;
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             background-color: black;
@@ -131,12 +131,13 @@
             <ul>
                 <li><a href="accueil.html">Accueil</a></li>
                 <li><a href="toutparcourir.html">Tout Parcourir</a></li>
-                <li><a href="recherche.html">Recherche</a></li>
+                <li><a href="gestion_PS.php">Personnel de santé</a></li>
+                <li><a href="labo.php">Laboratoire de biologie médicale</a></li>
                 <li class="nav-item">
                     <a href="rendezvous.html">
                         <span data-feather="message-square"></span>
                         Messagerie
-                        <span class="badge bg-primary rounded-pill ms-2">3</span>
+                        <span class="badge bg-primary rounded-pill ms-2"></span>
                     </a>
                 </li>                
                 <li><a href="index.html">Se déconnecter</a></li>
@@ -150,166 +151,9 @@
                         <h1 class="h2">Compte Administrateur</h1>
                     </div>
                     
-                    <div class="table-responsive">
-                        <div class="sticky-header">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h2>Liste du personnel de santé</h2>
-                            </div>
-                            <div class="d-flex justify-content-center mb-3">
-                                <div class="input-group search-bar">
-                                    <input type="text" class="form-control" id="search-input" placeholder="Rechercher...">
-                                    <button class="btn btn-primary" type="button" id="search-btn"><i class="fas fa-search"></i></button>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-between mb-3">
-                                <div>
-                                    <br><a href="ajouter_medecin.php" class="btn btn-primary">Ajouter</a><br>
-                                </div>
-                            </div>
-                        </div>
-                        <table class="table table-striped table-sm">
-                            <thead>                                                                                                       
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nom</th>
-                                    <th>Prénom</th>
-                                    <th>Spécialité</th>
-                                    <th>Salle</th>
-                                    <th>CV</th>
-                                    <th>Email</th>
-                                    <th>Mot de passe</th>
-                                    <th class="telephone">Téléphone</th>
-                                    <th>Photo</th>
-                                    <th>Vidéo</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <?php
-                            $sql = "SELECT ID_Medecin, Nom_M_PS, Prenom_M_PS, Specialite, Salle, CV, E_mail_M_PS, Mdp_M_PS, Telephone_M_PS, Photo, Video FROM medecin_et_professionnel_de_sante";
-                            $result = $pdo->query($sql);
-
-                            if ($result->rowCount() > 0) {
-                                
-                                while($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                                    echo "<tr class='clickable-row'>
-                                            <td>" . $row["ID_Medecin"] . "</td>
-                                            <td>" . $row["Nom_M_PS"] . "</td>
-                                            <td>" . $row["Prenom_M_PS"] . "</td>
-                                            <td>" . $row["Specialite"] . "</td>
-                                            <td>" . $row["Salle"] . "</td>
-                                            <td><img src='" . $row["CV"] . "' alt='CV' height='100' width='100' onclick='openImageInNewTab(event)'></td>
-                                            <td>" . $row["E_mail_M_PS"] . "</td>
-                                            <td>" . $row["Mdp_M_PS"] . "</td>
-                                            <td class='telephone'>" . $row["Telephone_M_PS"] . "</td>
-                                            <td><img src='" . $row["Photo"] . "' alt='Photo' height='100' width='100' onclick='openImageInNewTab(event)'></td>
-                                            <td><video src='" . $row["Video"] . "' alt='Vidéo' height='100' width='100' controls controlsList='nodownload' onclick='openVideoInNewTab(event)'></video></td>
-                                            <td>
-                                                <a href='modifier_medecin.php?id=" . $row['ID_Medecin'] . "' class='btn btn-primary btn-sm'>Modifier</a>
-                                                <button type='button' class='btn btn-danger btn-sm delete-btn' data-id='" . $row['ID_Medecin'] . "'>Supprimer</button>
-                                            </td>
-                                          </tr>";
-                                }
-                            } else {
-                                echo "<tr><td colspan='12'>Aucun résultat trouvé.</td></tr>";
-                            }
-                            ?>
-                            </tbody>
-                        </table>
-                    </div>
                 </main>
             </div>
         </div>
     </div>
-    <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.delete-btn').click(function() {
-                var id = $(this).data('id');
-                if (confirm('Êtes-vous sûr de vouloir supprimer ce médecin ?')) {
-                    $.ajax({
-                        type: 'POST',
-                        url: 'supprimer_medecin.php',
-                        data: { id: id },
-                        success: function(response) {
-                            if (response == 'success') {
-                                alert('Le médecin a été supprimé avec succès.');
-                                location.reload();
-                            } else {
-                                alert('Une erreur s\'est produite lors de la suppression du médecin.');
-                            }
-                        }
-                    });
-                }
-            });
-        });
-
-        function openImageInNewTab(event) {
-            var imageUrl = event.target.src;
-            window.open(imageUrl, '_blank');
-        }
-
-        function openVideoInNewTab(video) {
-            var videoUrl = video.src;
-            window.open(videoUrl, '_blank');
-        }
-
-        // Sélectionnez la barre de recherche et le bouton de recherche
-        const searchInput = document.getElementById("search-input");
-        const searchBtn = document.getElementById("search-btn");
-
-        // Ajoutez un gestionnaire d'événements de clic sur le bouton de recherche
-        searchBtn.addEventListener("click", function() {
-            // Récupérez la valeur de la barre de recherche
-            const searchValue = searchInput.value.toLowerCase();
-
-            // Sélectionnez toutes les lignes du tableau
-            const rows = document.querySelectorAll("tbody tr");
-
-            // Parcourez toutes les lignes du tableau
-            for (let i = 0; i < rows.length; i++) {
-                // Sélectionnez toutes les cellules de la ligne courante
-                const cells = rows[i].querySelectorAll("td");
-
-                // Définissez une variable pour indiquer si la ligne courante contient la valeur de la recherche
-                let match = false;
-
-                // Parcourez toutes les cellules de la ligne courante
-                for (let j = 0; j < cells.length; j++) {
-                    // Vérifiez si la cellule courante contient la valeur de la recherche
-                    if (cells[j].textContent.toLowerCase().indexOf(searchValue) !== -1) {
-                        // Définissez la variable match sur true
-                        match = true;
-
-                        // Arrêtez la boucle sur les cellules
-                        break;
-                    }
-                }
-
-                // Si la ligne courante ne contient pas la valeur de la recherche, masquez-la
-                if (!match) {
-                    rows[i].style.display = "none";
-                } else {
-                    // Sinon, affichez-la
-                    rows[i].style.display = "";
-                }
-            }
-        });
-
-        // sélectionnez toutes les lignes du tableau
-        const rows = document.querySelectorAll(".clickable-row");
-
-        // ajoutez un gestionnaire d'événements de double-clic sur chaque ligne
-        for (let i = 0; i < rows.length; i++) {
-            rows[i].addEventListener("dblclick", function() {
-                // récupérez l'ID du médecin à partir de la colonne ID
-                const id = this.querySelector("td:nth-child(1)").textContent;
-
-                // redirigez l'utilisateur vers la page des disponibilités du médecin
-                window.location.href = "disponibilites.php?id=" + id;
-            });
-        }
-    </script>
 </body>
 </html>

@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-color: #0C1A1A;
+            background-color: #008080;
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -112,6 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     <i class="fa fa-user">
                                     </i>
                                 </span>
+                                <input type="hidden" class="form-control" id="id" name="id" value="<?= $medecin['ID_Medecin'] ?>" placeholder="ID">
                                 <input type="text" class="form-control" id="nom" name="nom" value="<?= $medecin['Nom_M_PS'] ?>" placeholder="Nom">
                             </div>
                             <div class="input-group mb-3">
