@@ -35,7 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bindParam(':email', $email);
 
     if ($stmt->execute()) {
-        echo "Inscription réussie";
+        header("Location: inscription_reussie.html");
+        exit();
     } else {
         echo "Erreur lors de l'inscription";
     }
