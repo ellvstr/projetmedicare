@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 27 mai 2024 à 16:52
+-- Généré le : dim. 02 juin 2024 à 14:18
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -24,33 +24,38 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `administrateur`
+-- Structure de la table `achat`
 --
 
-CREATE TABLE `administrateur` (
-  `ID_Admin` int(11) NOT NULL,
-  `Nom_utilisateur` varchar(255) NOT NULL,
-  `Nom_de_l_admin` varchar(255) NOT NULL,
-  `Prenom_Admin` varchar(255) NOT NULL,
-  `Date_de_naissance` date NOT NULL,
-  `Adresse` varchar(255) NOT NULL,
-  `Mot_de_passe` varchar(255) NOT NULL
+CREATE TABLE `achat` (
+  `ID_Achat` int(11) NOT NULL,
+  `Nom_Client` varchar(50) NOT NULL,
+  `Date_Achat` date NOT NULL,
+  `TypeCarte_Used` varchar(20) NOT NULL,
+  `NumeroCarte` varchar(20) NOT NULL,
+  `ID_Client` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `carte_credit`
+-- Structure de la table `administrateur`
 --
 
-CREATE TABLE `carte_credit` (
-  `Numero_carte` varchar(20) NOT NULL,
-  `Type_carte` varchar(50) NOT NULL,
-  `Nom_proprietaire` varchar(50) NOT NULL,
-  `Date_expiration` date NOT NULL,
-  `Code_securite` varchar(10) NOT NULL,
-  `ID_Client` int(11) DEFAULT NULL
+CREATE TABLE `administrateur` (
+  `ID_Admin` int(11) NOT NULL,
+  `Nom_Admin` varchar(50) NOT NULL,
+  `Prenom_Admin` varchar(50) NOT NULL,
+  `Courriel_Admin` varchar(50) NOT NULL,
+  `Mdp_Admin` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `administrateur`
+--
+
+INSERT INTO `administrateur` (`ID_Admin`, `Nom_Admin`, `Prenom_Admin`, `Courriel_Admin`, `Mdp_Admin`) VALUES
+(1, 'Kankolongo', 'Gabriella', 'gabriella.kankolongo@edu.ece.fr', '$2y$10$tBCJ6qfjxPj.x//3kOkNJ.QDp9Oj0Is6FsT4YJCx3ncqjD5Tle7wa');
 
 -- --------------------------------------------------------
 
@@ -60,19 +65,31 @@ CREATE TABLE `carte_credit` (
 
 CREATE TABLE `client` (
   `ID_Client` int(11) NOT NULL,
-  `Nom_Utilisateur_Client` varchar(50) NOT NULL,
-  `Mot_de_passe_Client` varchar(255) NOT NULL,
   `Nom_Client` varchar(50) NOT NULL,
   `Prenom_Client` varchar(50) NOT NULL,
   `Sexe` varchar(10) DEFAULT NULL,
-  `Adresse` varchar(255) DEFAULT NULL,
-  `Etat_de_sante` text DEFAULT NULL,
+  `Adresse_Client` varchar(255) DEFAULT NULL,
   `Ville` varchar(50) DEFAULT NULL,
   `Code_Postal` varchar(20) DEFAULT NULL,
   `Pays` varchar(50) DEFAULT NULL,
   `Telephone_Client` varchar(20) DEFAULT NULL,
   `Carte_Vitale` varchar(50) DEFAULT NULL,
-  `E_mail_Client` varchar(100) NOT NULL
+  `E_mail_Client` varchar(100) NOT NULL,
+  `Mdp_Client` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `consultations`
+--
+
+CREATE TABLE `consultations` (
+  `id` int(11) NOT NULL,
+  `medecin_id` int(11) DEFAULT NULL,
+  `client_id` int(11) DEFAULT NULL,
+  `date_heure` datetime DEFAULT NULL,
+  `details` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -110,9 +127,9 @@ CREATE TABLE `disponibilites` (
 CREATE TABLE `laboratoire_de_biologie_medicale` (
   `ID_Labo` int(11) NOT NULL,
   `E_mail` varchar(100) NOT NULL,
-  `Telephone` varchar(20) NOT NULL,
+  `Telephone_Labo` varchar(20) NOT NULL,
   `Nom_Labo` varchar(100) NOT NULL,
-  `Adresse` varchar(255) NOT NULL,
+  `Adresse_Labo` varchar(255) NOT NULL,
   `ID_Admin` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -124,29 +141,40 @@ CREATE TABLE `laboratoire_de_biologie_medicale` (
 
 CREATE TABLE `medecin_et_professionnel_de_sante` (
   `ID_Medecin` int(11) NOT NULL,
-  `Nom_utilisateur` varchar(255) NOT NULL,
-  `Mot_de_passe` varchar(255) NOT NULL,
-  `Nom` varchar(50) NOT NULL,
-  `Prenom` varchar(50) NOT NULL,
-  `Specialite` varchar(255) NOT NULL,
-  `CV` text DEFAULT NULL,
-  `E_mail` varchar(100) NOT NULL,
-  `Telephone` varchar(20) DEFAULT NULL,
+  `Nom_M_PS` varchar(50) NOT NULL,
+  `Prenom_M_PS` varchar(50) NOT NULL,
+  `Specialite` varchar(50) NOT NULL,
+  `CV` varchar(100) DEFAULT NULL,
+  `E_mail_M_PS` varchar(100) NOT NULL,
+  `Mdp_M_PS` varchar(255) NOT NULL,
+  `Telephone_M_PS` varchar(20) DEFAULT NULL,
   `Photo` varchar(255) DEFAULT NULL,
   `Video` varchar(255) DEFAULT NULL,
   `Salle` varchar(50) DEFAULT NULL,
   `ID_Admin` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `medecin_et_professionnel_de_sante`
+--
+
+INSERT INTO `medecin_et_professionnel_de_sante` (`ID_Medecin`, `Nom_M_PS`, `Prenom_M_PS`, `Specialite`, `CV`, `E_mail_M_PS`, `Mdp_M_PS`, `Telephone_M_PS`, `Photo`, `Video`, `Salle`, `ID_Admin`) VALUES
+(1, 'Keller', 'Anna', 'Addictologie', 'img/cvaddictologue.jpg', 'anna.keller@medicare.com', '$2y$10$.UTLp8AvDdQtNZJsGQlysuBP8QWMzZGsY8QAOrkGvD0a6T8Hz3Wg', '+33 1 56 87 09 34', 'img/addictologue.jpg', 'video/addictologue.mp4', 'D404', NULL),
+(2, 'Duval', 'Claire', 'Cardiologie', 'img/cvcardiologue.jpg', 'claire.duval@medicare.com', '123', '+33 1 78 17 09 10', 'img/cardiologue.jpg', 'video/addictologue.mp4', 'F606', NULL),
+(3, 'Martin', 'Paul', 'Andrologie', 'img/cvandrologue.jpg', 'paul.martin@medicare.com', '$2y$10$8MDwuhNScEUKu3M0VzGzm.v20LpXPwvGuXWuI9tC3uuzfTPYl0i3a', '+33 1 69 98 13 34 ', 'img/andrologue.jpg', 'video/addictologue.mp4', 'E505', NULL);
+
 -- --------------------------------------------------------
 
 --
--- Structure de la table `proposer`
+-- Structure de la table `messages`
 --
 
-CREATE TABLE `proposer` (
-  `ID_Labo` int(11) NOT NULL,
-  `ID_Services` int(11) NOT NULL
+CREATE TABLE `messages` (
+  `id` int(11) NOT NULL,
+  `consultation_id` int(11) DEFAULT NULL,
+  `sender` enum('medecin','client') DEFAULT NULL,
+  `message` text DEFAULT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -181,23 +209,31 @@ CREATE TABLE `services` (
 --
 
 --
+-- Index pour la table `achat`
+--
+ALTER TABLE `achat`
+  ADD PRIMARY KEY (`ID_Achat`),
+  ADD KEY `ID_Client` (`ID_Client`);
+
+--
 -- Index pour la table `administrateur`
 --
 ALTER TABLE `administrateur`
   ADD PRIMARY KEY (`ID_Admin`);
 
 --
--- Index pour la table `carte_credit`
---
-ALTER TABLE `carte_credit`
-  ADD PRIMARY KEY (`Numero_carte`),
-  ADD KEY `ID_Client` (`ID_Client`);
-
---
 -- Index pour la table `client`
 --
 ALTER TABLE `client`
   ADD PRIMARY KEY (`ID_Client`);
+
+--
+-- Index pour la table `consultations`
+--
+ALTER TABLE `consultations`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `medecin_id` (`medecin_id`),
+  ADD KEY `client_id` (`client_id`);
 
 --
 -- Index pour la table `creneaux`
@@ -228,11 +264,11 @@ ALTER TABLE `medecin_et_professionnel_de_sante`
   ADD KEY `ID_Admin` (`ID_Admin`);
 
 --
--- Index pour la table `proposer`
+-- Index pour la table `messages`
 --
-ALTER TABLE `proposer`
-  ADD PRIMARY KEY (`ID_Labo`,`ID_Services`),
-  ADD KEY `ID_Services` (`ID_Services`);
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `consultation_id` (`consultation_id`);
 
 --
 -- Index pour la table `rendez_vous`
@@ -254,10 +290,16 @@ ALTER TABLE `services`
 --
 
 --
+-- AUTO_INCREMENT pour la table `achat`
+--
+ALTER TABLE `achat`
+  MODIFY `ID_Achat` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT pour la table `administrateur`
 --
 ALTER TABLE `administrateur`
-  MODIFY `ID_Admin` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `client`
@@ -287,7 +329,13 @@ ALTER TABLE `laboratoire_de_biologie_medicale`
 -- AUTO_INCREMENT pour la table `medecin_et_professionnel_de_sante`
 --
 ALTER TABLE `medecin_et_professionnel_de_sante`
-  MODIFY `ID_Medecin` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Medecin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `rendez_vous`
@@ -306,10 +354,17 @@ ALTER TABLE `services`
 --
 
 --
--- Contraintes pour la table `carte_credit`
+-- Contraintes pour la table `achat`
 --
-ALTER TABLE `carte_credit`
-  ADD CONSTRAINT `carte_credit_ibfk_1` FOREIGN KEY (`ID_Client`) REFERENCES `client` (`ID_Client`);
+ALTER TABLE `achat`
+  ADD CONSTRAINT `achat_ibfk_1` FOREIGN KEY (`ID_Client`) REFERENCES `client` (`ID_Client`);
+
+--
+-- Contraintes pour la table `consultations`
+--
+ALTER TABLE `consultations`
+  ADD CONSTRAINT `consultations_ibfk_1` FOREIGN KEY (`medecin_id`) REFERENCES `medecin_et_professionnel_de_sante` (`ID_Medecin`),
+  ADD CONSTRAINT `consultations_ibfk_2` FOREIGN KEY (`client_id`) REFERENCES `client` (`ID_Client`);
 
 --
 -- Contraintes pour la table `creneaux`
@@ -336,11 +391,10 @@ ALTER TABLE `medecin_et_professionnel_de_sante`
   ADD CONSTRAINT `medecin_et_professionnel_de_sante_ibfk_1` FOREIGN KEY (`ID_Admin`) REFERENCES `administrateur` (`ID_Admin`);
 
 --
--- Contraintes pour la table `proposer`
+-- Contraintes pour la table `messages`
 --
-ALTER TABLE `proposer`
-  ADD CONSTRAINT `proposer_ibfk_1` FOREIGN KEY (`ID_Labo`) REFERENCES `laboratoire_de_biologie_medicale` (`ID_Labo`),
-  ADD CONSTRAINT `proposer_ibfk_2` FOREIGN KEY (`ID_Services`) REFERENCES `services` (`ID_Services`);
+ALTER TABLE `messages`
+  ADD CONSTRAINT `messages_ibfk_1` FOREIGN KEY (`consultation_id`) REFERENCES `consultations` (`id`);
 
 --
 -- Contraintes pour la table `rendez_vous`
