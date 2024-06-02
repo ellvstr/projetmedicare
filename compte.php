@@ -31,8 +31,8 @@ $rendez_vous = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <title>Votre Compte</title>
     <style>
         body {
-            background-color: #0C1A1A; /* Couleur de fond */
-            color: #FFFFFF; /* Couleur du texte */
+            background-color: #0C1A1A;
+            color: #FFFFFF;
             font-family: Arial, sans-serif;
         }
         header {
@@ -91,26 +91,26 @@ $rendez_vous = $stmt->fetchAll(PDO::FETCH_ASSOC);
             max-width: 800px;
             margin: 50px auto;
             padding: 20px;
-            background-color: #003333; /* Couleur de fond du contenu */
+            background-color: #003333;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         h1, h2 {
-            color: #008080; /* Couleur du titre */
+            color: #008080;
             text-align: center;
         }
         p, a {
-            color: #FFFFFF; /* Couleur du texte et des liens */
+            color: #FFFFFF;
         }
         a {
             text-decoration: none;
-            color: #00FFFF; /* Couleur des liens */
+            color: #00FFFF;
         }
         a:hover {
             text-decoration: underline;
         }
         .rdv {
-            background-color: #004D4D; /* Couleur de fond des rendez-vous */
+            background-color: #004D4D;
             padding: 10px;
             margin: 10px 0;
             border-radius: 5px;
@@ -145,13 +145,8 @@ $rendez_vous = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <li><a href="accueil.html">Accueil</a></li>
             <li><a href="toutparcourir.html">Tout Parcourir</a></li>
             <li><a href="recherche.html">Recherche</a></li>
-            <li class="nav-item">
-                <a href="rendezvous.html">
-                    <span data-feather="message-square"></span>
-                    Messagerie
-                    <span class="badge bg-primary rounded-pill ms-2">3</span>
-                </a>
-            </li>
+            <li><a href="rdv_form.html">Rendez-vous</a></li>
+            <li><a href="chat2.php">Messagerie</a></li> 
             <li><a href="logout.php">Se déconnecter</a></li>
         </ul>
     </nav>
@@ -179,3 +174,4 @@ $rendez_vous = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
 </body>
 </html>
+
