@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Rendez-vous</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="rendezvous-container">
+        <h1>Mes Rendez-vous Confirmés</h1>
+        <table id="rendezvous-table">
+            <thead>
+                <tr>
+                    <th>Médecin</th>
+                    <th>Spécialité</th>
+                    <th>Date et Heure</th>
+                    <th>Adresse</th>
+                    <th>Statut</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Les rendez-vous seront chargés ici par le script JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Charger les rendez-vous confirmés
+            $.ajax({
+                url: 'rendezvous.php',
+                method: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    let tableBody = $('#rendezvous-table tbody');
+                    tableBody.empty();
+                    data.forEach(function(rdv) {
+                        let row = `<tr>
+                            <td>${ID_Client}</td>
+                            <td>${Statut}</td>
+                            <td>${Date_heure}</td>
+                            <td>${rdv.Adresse_Labo}</td>
+                            <td>${ID_Labo}</td>
+                            <td>${ID_Medecin}</td>
+                            <td><button class="annuler-btn" data-id="${ID_Rdv}">Annuler</button></td>
+                        </tr>`;
+                        tableBody.append(row);
+                    });
+
+                    // Ajouter un événement de clic pour les boutons d'annulation
+                    $('.annuler-btn').click(function() {
+                        let rdvId = $(this).data('id');
+                        if (confirm("Voulez-vous vraiment annuler ce rendez-vous ?")) {
+                            $.ajax({
+                                url: 'annuler_rdv.php',
+                                method: 'POST',
+                                data: {ID_Rdv},
+                                dataType: 'json',
+                                success: function(response) {
+                                    if (response.success) {
+                                        alert(response.message);
+                                        location.reload();
+                                    } else {
+                                        alert(response.message);
+                                    }
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
